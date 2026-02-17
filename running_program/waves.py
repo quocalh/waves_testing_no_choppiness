@@ -30,15 +30,11 @@ Y_UNIT = 0.1
 WATER_COLOR = np.array([0.0, 0.2, 0.4], dtype = np.float32)
 WATER_COLOR = fvector(61,93,126) / 255
 WATER_COLOR = fvector(0,30,59) / 255
-# WATER_COLOR = np.array([0.7, 0.7, 0.7], dtype = np.float32)
 
-# SKY_COLOR = fvector(0.3843, 0.7569, 0.8980)
 SKY_COLOR = fvector(0.6275, 0.8510, 0.9373)
 SKY_COLOR = fvector(0.8118, 0.9255, 0.9686)
 SKY_COLOR = fvector(207,236,247) / 255
 
-
-# SKY_COLOR = fvector(0.53, 0.81, 0.98)
 
 vertices = np.zeros((X_NUM * Y_NUM, 3), dtype = np.float32)
 
