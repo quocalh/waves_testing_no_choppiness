@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\meshes",
+    "\\resources",
+    "\\resources\\shader_sources",
+    "\\running_program"
+  ],
+  "SelectedNode": "\\running_program\\testing_reading_wavefront.py",
+  "PreviewInSolutionExplorer": false
+}
