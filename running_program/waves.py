@@ -102,7 +102,6 @@ enhanced_shader_prog = TestingShaderProgram(
 
 
 shader_prog.Use()
-# glUniform3f(shader_prog._uniform_location["water_color"], *WATER_COLOR)
 glUniform3f(shader_prog.GetUniformLocation("water_color"), *WATER_COLOR)
 glUniform3f(shader_prog._uniform_location["sky_color"], *SKY_COLOR)
 shader_prog.Unuse()
@@ -169,14 +168,11 @@ while running:
         enhanced_shader_prog.Use()
         shader = enhanced_shader_prog
 
-        # binding variables
             # vertex shader
     glUniform1f(shader._uniform_location["time"], t)
     glUniformMatrix4fv(shader._uniform_location["perspective_mat"], 1, GL_TRUE, camera.GetTransformationMat)
             # fragment shader
-    # glUniform3f(uniform_location["water_color"], 0.000, 0.329, 0.467)
     glUniform3f(shader._uniform_location["light_dir"], *fvector(8, 5, 1))
-    # glUniform3f(shader._uniform_location["light_dir"], *fuvector(0.40824829,-0.81649658,-0.40824829))
     glUniform3f(shader._uniform_location["cam_pos"], *camera._pos)
     glUniform3f(shader._uniform_location["orientation"], *camera._orientation)
 
