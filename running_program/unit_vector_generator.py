@@ -17,7 +17,7 @@ def generate_vectors(n, base_angle_deg, max_spread_deg):
     print(f"const vec2 array_of_dirs[{n}] = vec2[{n}](")
 
     for i in range(n):
-        # spread increases with index
+            # spread increases with index
         t = i / (n - 1) if n > 1 else 0
         spread = max_spread * t
         spread = max_spread
