@@ -73,44 +73,19 @@ clock = pg.time.Clock()
 
 glEnable(GL_DEPTH_TEST)
 
-vertex_shader_src, fragment_shader_src = ReadShaderFile(r"resources\shader_sources\waves_typical.glsl")
-shader_prog = TestingShaderProgram(
-    vertex_shader = Shader(GL_VERTEX_SHADER, vertex_shader_src),
-    fragment_shader = Shader(GL_FRAGMENT_SHADER, fragment_shader_src),
-    uniform_names_set = [
-        "perspective_mat",
-        "time",
-        "water_color",  
-
-        "light_dir",
-        "cam_pos",
-        "orientation",
-        "sky_color",
-    ]
-)
-
-
-
 
 vertex_shader_src, fragment_shader_src = ReadShaderFile(r"resources/shader_sources/waves_choppier.glsl")
 enhanced_shader_prog = TestingShaderProgram(
     vertex_shader = Shader(GL_VERTEX_SHADER, vertex_shader_src),
     fragment_shader = Shader(GL_FRAGMENT_SHADER, fragment_shader_src),
-    uniform_names_set = shader_prog._uniform_names
+    uniform_names_set = []
 )
 
 
 
-shader_prog.Use()
-glUniform3f(shader_prog.GetUniformLocation("water_color"), *WATER_COLOR)
-glUniform3f(shader_prog._uniform_location["sky_color"], *SKY_COLOR)
-shader_prog.Unuse()
-
 enhanced_shader_prog.Use()
-glUniform3f(enhanced_shader_prog._uniform_location["water_color"], *WATER_COLOR)
-glUniform3f(enhanced_shader_prog._uniform_location["sky_color"], *SKY_COLOR)
-
-uniform_location: dict = shader_prog._uniform_location
+glUniform3f(enhanced_shader_prog.UserGetUniformLocation("water_color"), *WATER_COLOR)
+glUniform3f(enhanced_shader_prog.UserGetUniformLocation("sky_color"), *SKY_COLOR)
 
 mesh = Mesh()
 mesh._vertices = vertices
@@ -160,21 +135,14 @@ while running:
     glClearColor(*SKY_COLOR, 1)
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT)
 
-    shader = None
-    if TOGGLE_CHANGE_SHADER == False:
-        shader_prog.Use()
-        shader = shader_prog
-    else:
-        enhanced_shader_prog.Use()
-        shader = enhanced_shader_prog
 
             # vertex shader
-    glUniform1f(shader._uniform_location["time"], t)
-    glUniformMatrix4fv(shader._uniform_location["perspective_mat"], 1, GL_TRUE, camera.GetTransformationMat)
+    glUniform1f(enhanced_shader_prog.UserGetUniformLocation("time"), t)
+    glUniformMatrix4fv(enhanced_shader_prog.UserGetUniformLocation("perspective_mat"), 1, GL_TRUE, camera.GetTransformationMat)
             # fragment shader
-    glUniform3f(shader._uniform_location["light_dir"], *fvector(8, 5, 1))
-    glUniform3f(shader._uniform_location["cam_pos"], *camera._pos)
-    glUniform3f(shader._uniform_location["orientation"], *camera._orientation)
+    glUniform3f(enhanced_shader_prog.UserGetUniformLocation("light_pos"), *vector(8, 5, 1))
+    glUniform3f(enhanced_shader_prog.UserGetUniformLocation("cam_pos"), *camera._pos)
+    glUniform3f(enhanced_shader_prog.UserGetUniformLocation("orientation"), *camera._orientation)
 
 
     mesh._vao.Bind()
@@ -184,8 +152,8 @@ while running:
     pg.display.flip()
     pg.display.set_caption(f"FPS: {clock.get_fps() // 1}")
 
-shader_prog.Unuse()
-shader_prog.Delete()
+
+enhanced_shader_prog.Unuse()
 enhanced_shader_prog.Delete()
 
     

@@ -372,7 +372,7 @@ void main()
 
 
     float sin_i = sin(incident_rad);
-            // ni sin(0i) = nt sin(0t);
+                // ni sin(0i) = nt sin(0t);
                 // 1 sin(0i) = 4/3 sin(0t);
                 // 3/4 sin(0i) = sin(0t);
     float sin_t = 0.75 * sin_i;

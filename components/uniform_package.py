@@ -131,7 +131,7 @@ class TestingShaderProgram(ShaderProgram):
         self._uniform_location[name] = location
         return location
 
-    def GetUniformLocation(self, name):
+    def UserGetUniformLocation(self, name):
         if name in self._uniform_location:
             return self._uniform_location[name]
         

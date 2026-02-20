@@ -3,6 +3,7 @@
 
 layout (location = 0) in vec3 in_Position;
 
+#define WAVES_NUMBER 50
 #define G 9.81
 #define wind_speed 30
 #define philips_constant 10
