@@ -25,8 +25,8 @@ from components.uniform_package import *
     # Creating vertices
 X_NUM = 1000
 Y_NUM = 1000
-X_UNIT = 0.1
-Y_UNIT = 0.1
+X_UNIT = 0.01
+Y_UNIT = 0.01
 WATER_COLOR = np.array([0.0, 0.2, 0.4], dtype = np.float32)
 WATER_COLOR = fvector(61,93,126) / 255
 WATER_COLOR = fvector(0,30,59) / 255
@@ -65,7 +65,7 @@ for i in range(X_NUM - 1):
 
 
 camera = Camera(sensitivity = 0.5, far = 1050)
-camera._velocity *= 1.5
+camera._velocity *= 0.5
 
 running = True
 screen = pg.display.set_mode((WIDTH, HEIGHT), DOUBLEBUF | OPENGL)
@@ -84,8 +84,10 @@ enhanced_shader_prog = TestingShaderProgram(
 
 
 enhanced_shader_prog.Use()
+print(glGetUniformLocation(enhanced_shader_prog._ref, "time"))
 glUniform3f(enhanced_shader_prog.UserGetUniformLocation("water_color"), *WATER_COLOR)
 glUniform3f(enhanced_shader_prog.UserGetUniformLocation("sky_color"), *SKY_COLOR)
+enhanced_shader_prog.Unuse()
 
 mesh = Mesh()
 mesh._vertices = vertices
@@ -135,12 +137,12 @@ while running:
     glClearColor(*SKY_COLOR, 1)
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT)
 
-
+    enhanced_shader_prog.Use()
             # vertex shader
     glUniform1f(enhanced_shader_prog.UserGetUniformLocation("time"), t)
     glUniformMatrix4fv(enhanced_shader_prog.UserGetUniformLocation("perspective_mat"), 1, GL_TRUE, camera.GetTransformationMat)
             # fragment shader
-    glUniform3f(enhanced_shader_prog.UserGetUniformLocation("light_pos"), *vector(8, 5, 1))
+    glUniform3f(enhanced_shader_prog.UserGetUniformLocation("light_pos"), *fvector(8, 5, 1))
     glUniform3f(enhanced_shader_prog.UserGetUniformLocation("cam_pos"), *camera._pos)
     glUniform3f(enhanced_shader_prog.UserGetUniformLocation("orientation"), *camera._orientation)
 

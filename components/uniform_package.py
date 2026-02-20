@@ -136,9 +136,10 @@ class TestingShaderProgram(ShaderProgram):
             return self._uniform_location[name]
         
         location = self.GetLocation(name)
-        if location == -1:
-            print(f"SHADER PROG ({name}): trying to gain access to nil?")
-            raise(f"SHADER PROG ({name}): trying to gain access to nil?")
+        # if location == -1:
+        #     print(f"SHADER PROG ({name}): trying to gain access to nil?")
+        #     raise(f"SHADER PROG ({name}): trying to gain access to nil?\n")
+        
         return location
         
     

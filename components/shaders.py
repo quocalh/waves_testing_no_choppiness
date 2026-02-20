@@ -107,7 +107,7 @@ class ShaderProgram:
             self._vert_shader.Delete()
             self._frag_shader.Delete()
             self.Delete()
-            raise Exception(f"SHADER PROGRAM::LINKING PROGRAMS:: \n\tINFO LOG: {error}")
+            raise Exception(f"SHADER PROGRAM::LINKING PROGRAMS:: \n\tINFO LOG: {error.decode("utf-8")}")
         self._vert_shader.Detach(self)
         self._frag_shader.Detach(self)
         self._vert_shader.Delete()
