@@ -295,7 +295,7 @@ uniform vec3 sky_color;
 out vec4 glFragColor;
 
 
-const vec3 upwelling = vec3(0, 0.2, 0.3);
+const vec3 upwelling = vec3(0.1, 0.2, 0.4);
 const vec3 sky =  vec3(0.69, 0.84, 1);
 const vec3 air = vec3(0.1, 0.1, 0.1);
 const float nSnell = 1.34;
@@ -324,7 +324,7 @@ void main()
     float transmissivity = 1 - reflectivity;
 
     float distance = length(position - cam_pos) * Kdiffuse;
-    distance = exp(-distance);
+    distance = exp(-distance / 10);
     distance = 1;
 
     vec3 color = distance * (
