@@ -36,6 +36,10 @@ SKY_COLOR = fvector(0.8118, 0.9255, 0.9686)
 SKY_COLOR = fvector(207,236,247) / 255
 
 
+if __name__ != "__main__":
+    exit()
+
+    
 vertices = np.zeros((X_NUM * Y_NUM, 3), dtype = np.float32)
 
     # creating a 1d array of points with (i % COL_NUM, i // COL_NUM)
@@ -74,7 +78,7 @@ clock = pg.time.Clock()
 glEnable(GL_DEPTH_TEST)
 
 
-vertex_shader_src, fragment_shader_src = ReadShaderFile(r"resources/shader_sources/waves_choppier.glsl")
+vertex_shader_src, fragment_shader_src = ReadShaderFile(r"resources/shader_sources/waves_rigorous.glsl")
 enhanced_shader_prog = TestingShaderProgram(
     vertex_shader = Shader(GL_VERTEX_SHADER, vertex_shader_src),
     fragment_shader = Shader(GL_FRAGMENT_SHADER, fragment_shader_src),
