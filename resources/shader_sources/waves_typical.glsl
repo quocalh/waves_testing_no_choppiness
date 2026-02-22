@@ -2,10 +2,10 @@
 #version 330 core
 
 #define WAVES_NUMBER 90
-#define MAX_AMPLITUDE 1.7
+#define MAX_AMPLITUDE 0.9
 #define MAX_SPEED 0.7
 #define WIND_SPEED 0.7
-#define choppy_coef 0.58
+#define choppy_coef 0.38
 
     // fetch
 #define F 300
@@ -426,7 +426,7 @@ void main()
     //     ), 1.0);
     // glFragColor.xyz = baseColor;
     glFragColor += vec4(vec3(
-        pow((clamp((length(unnormalized_normal) - 130) / 60, 0, 1)), 2.3)
+        pow((clamp((length(unnormalized_normal) - 120) / 60, 0, 1)), 2.3)
         ), 1) * 1.8;
     
     // glFragColor.xyz += foam_maker * sky_color;
