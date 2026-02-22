@@ -25,8 +25,8 @@ from components.uniform_package import *
     # Creating vertices
 X_NUM = 1000
 Y_NUM = 1000
-X_UNIT = 0.1
-Y_UNIT = 0.1
+X_UNIT = 0.05
+Y_UNIT = 0.05
 WATER_COLOR = np.array([0.0, 0.2, 0.4], dtype = np.float32)
 WATER_COLOR = fvector(61,93,126) / 255
 WATER_COLOR = fvector(0,30,59) / 255

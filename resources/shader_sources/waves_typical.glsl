@@ -2,8 +2,8 @@
 #version 330 core
 
 #define WAVES_NUMBER 90
-#define MAX_AMPLITUDE 2.7
-#define MAX_SPEED 1.5
+#define MAX_AMPLITUDE 1.7
+#define MAX_SPEED 0.7
 #define WIND_SPEED 0.7
 #define choppy_coef 0.58
 
@@ -285,7 +285,7 @@ void main()
         w = pow(w, 2.25);
 
         // speed (phase speed, keeping your assumption)
-        s = w * 0.035;
+        s = w * 0.035 * MAX_SPEED;
 
         // Phillips spectrum (correct k usage + stability)
             dot_wk = max(dot(normalize(WIN_DIR), dir), 0.0);
