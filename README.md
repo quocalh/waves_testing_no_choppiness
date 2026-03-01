@@ -1,5 +1,5 @@
 # Why this repo exists?
-This repo inherit the previous boiler plate from the engine i made 2 months ago, 
+This repo inherit the previous boiler plate from the engine i made, 
 but this repo will be more focus on creating the ocean surface through a more emprical, statistical approach
 when combining large ammount of oscillating functions together, aiming for the nearest replication of the Tessendorf paper
 # Limitation
