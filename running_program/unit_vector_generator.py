@@ -16,7 +16,7 @@ import sys
 if __name__ == "__main__":
     sys.path.append(os.path.dirname(__file__) + "/..")
 
-from running_program.waves import X_UNIT, X_NUM, Y_NUM, Y_UNIT
+from running_program.waves_rigorous import X_UNIT, X_NUM, Y_NUM, Y_UNIT
 
 
 def generate_vectors(n, base_angle_deg, max_spread_deg):
