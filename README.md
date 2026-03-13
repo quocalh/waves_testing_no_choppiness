@@ -19,12 +19,14 @@ The glsl has both the vertex shader, and the fragment shader
 
 
 ## The rigorous one 
+![image](resources\images\rigorous.png)
 which ultilzing the exact formulas shown in the Tessendorf's note, or at least creating something similar to it. For this one, we tried our best to replicate the Tessendorf's ocean without the FFT technique
 
 The running file: running_program/**waves_rigourous.py**
     the shader file: resources/shader_sources/**waves_rigorous.glsl**
 
 ## The modified one
+![image](resources\images\modified.png)
 This one, aims for the most artistic looks of the mild-conditioned ocean, with heavily modified wave spectrum and coefficients
 
 the running file: running_program/**waves_modified.py**
