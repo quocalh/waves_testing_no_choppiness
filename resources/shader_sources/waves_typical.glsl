@@ -5,7 +5,7 @@
 #define MAX_AMPLITUDE 0.9
 #define MAX_SPEED 0.7
 #define WIND_SPEED 0.7
-#define choppy_coef 0.38
+#define choppy_coef 0.18
 
     // fetch
 #define F 300
