@@ -1,3 +1,6 @@
+# The demo video
+https://www.youtube.com/watch?v=gJnlaNKA3LY
+
 # Requirement
 required installed package to run:
     numpy
@@ -36,3 +39,5 @@ the running file: running_program/**waves_modified.py**
 Note that the unit vector generator generates a uniform set of wavevectors, which are used in the shader files (.glsl)
 
 
+# Documentation
+https://drive.google.com/file/d/1a_j1J6QQAs7WBR8tPWvcXQDjAdvx-wYV/view?usp=sharing
